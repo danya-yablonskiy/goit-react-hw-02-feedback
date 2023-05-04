@@ -40,14 +40,16 @@ export class App extends Component {
             />  
             </Section>
             <Section title={ 'Statistics'}>
-            <Statistics
+              {this.state.good > 0 || this.state.neutral > 0 || this.state.bad > 0 ?
+              <Statistics
               good={this.state.good}
               neutral={this.state.neutral}
               bad={this.state.bad}
               total={this.countTotalFeedback()}
               positivePercentage={this.countPositiveFeedbackPercentage()}
-            />
-              <Notification message={'There is feedback'} />
+                />
+                : <Notification message={'There is feedback'} />  
+              }
               </Section>
             </div>
         )
